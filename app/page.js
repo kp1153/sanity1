@@ -1,10 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {
-  getAllNews,
-  deleteDummyDocuments,
-  createMissingSlugDocument,
-} from "@/lib/newsService";
 import Link from "next/link";
 
 export default function Page() {
@@ -28,12 +23,10 @@ export default function Page() {
       try {
         setError(null);
 
-        // 🔥 एक बार uncomment करके missing slug document बनाएं
-        // await createMissingSlugDocument();
+        // Dummy data for now - replace with Sanity data later
+        const data = [];
 
-        const data = await getAllNews();
-
-        if (!data || !Array.isArray(data)) {
+        if (!Array.isArray(data)) {
           throw new Error("Invalid data received from server");
         }
 

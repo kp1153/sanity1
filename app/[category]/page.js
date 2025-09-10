@@ -2,7 +2,6 @@ export const dynamic = "force-dynamic";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { getNewsByCategory } from "@/lib/newsService";
 
 export default async function CategoryPage({ params }) {
   // Next.js 15 में params एक Promise है
