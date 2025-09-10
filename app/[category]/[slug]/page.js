@@ -1,9 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { fetchNewsBySlugAndCategory } from "@/lib/newsService";
-import NewsAnalytics from "@/components/NewsAnalytics";
-import ViewsCounter from "@/components/ViewsCounter";
 
 export const dynamic = "force-dynamic";
 
@@ -65,7 +62,6 @@ export default async function NewsPage({ params }) {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <NewsAnalytics newsData={news} />
       <div className="max-w-4xl mx-auto px-4 py-8">
         <nav className="mb-6 text-sm">
           <Link href="/" className="text-blue-600 hover:underline">
@@ -98,8 +94,6 @@ export default async function NewsPage({ params }) {
               <span className="mr-1">🕐</span>
               {formatDate(news.created_at)}
             </div>
-
-            <ViewsCounter slug={safeSlug} />
             <div className="flex items-center">
               <span className="mr-1">📂</span>
               {getCategoryDisplayName(safeCategory)}
